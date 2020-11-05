@@ -19,7 +19,8 @@ end
 Then /I should see "(.*)" before "(.*)"/ do |e1, e2|
   #  ensure that that e1 occurs before e2.
   #  page.body is the entire content of the page as a string.
-  expect(page).to have_content(/(.*)#{e1}(.*)#{e2}/)
+    mat = /#{e1}(.*)#{e2}/m
+    mat.match(page.body)
   #fail "Unimplemented"
 end
 
